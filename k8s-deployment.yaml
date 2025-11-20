@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: fastapi-microservice
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: fastapi-microservice
+  template:
+    metadata:
+      labels:
+        app: fastapi-microservice
+    spec:
+      containers:
+        - name: fastapi-microservice
+          image: us-central1-docker.pkg.dev/fastapi-project-440209/project/fastapi:latest
+          ports:
+            - containerPort: 8080
+          resources:
+            requests:
+              memory: "256Mi"  # Adjust based on app needs
+              cpu: "250m"
+            limits:
+              memory: "512Mi"  # Adjust based on app needs
+              cpu: "500m"
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: fastapi-microservice-service
+spec:
+  type: ClusterIP
+  selector:
+    app: fastapi-microservice
+  ports:
+    - protocol: TCP
+      port: 8080
+      targetPort: 8080

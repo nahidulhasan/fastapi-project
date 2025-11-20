@@ -1,0 +1,26 @@
+# Python cache
+__pycache__/
+*.py[cod]
+
+# Virtual environment
+.venv/
+venv/
+
+# Environment variables
+.env
+
+# Editor folders
+.vscode/
+.idea/
+
+# Logs
+*.log
+
+# SQLite DB (optional)
+*.db
+
+# pytest cache
+.pytest_cache/
+
+# MyPy / type checker
+.mypy_cache/
