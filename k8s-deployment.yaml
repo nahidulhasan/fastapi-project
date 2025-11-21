@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: fastapi-microservice
-          image: us-central1-docker.pkg.dev/fastapi-project-440209/project/fastapi:latest
+          image: us-central1-docker.pkg.dev/fastapi-project-478813/project/fastapi:latest
           ports:
             - containerPort: 8080
           resources:
